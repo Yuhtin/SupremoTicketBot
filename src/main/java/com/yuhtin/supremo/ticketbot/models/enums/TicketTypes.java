@@ -9,11 +9,11 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 public enum TicketTypes {
 
-    BUYS("Compras", "🛒", 0L),
-    PARTNER("Programa de Parceiros", "🤝", 0L),
-    BUG_REPORT("Reportes de Bugs", "⚠", 0L),
-    FINANCIAL("Financeiro", "💲", 0L),
-    QUESTIONS("Dúvidas", "❓", 0L);
+    BUYS("Compras", "🛒", 872133105643814933L),
+    PARTNER("Programa de Parceiros", "🤝", 872133198300205077L),
+    BUG_REPORT("Reportes de Bugs", "⚠", 872133142658547763L),
+    FINANCIAL("Financeiro", "💲", 872133256752005130L),
+    QUESTIONS("Dúvidas", "❓", 872133318299246642L);
 
     private final String fancyName;
     private final String emoji;
