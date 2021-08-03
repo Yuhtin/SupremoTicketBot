@@ -24,13 +24,13 @@ public class SupremoTicketBot {
 
         try {
 
-            JDABuilder.createDefault(System.getenv("TOKEN"))
+            JDABuilder.createDefault("ODcyMTMwNzA4NDE4NzQ0Mzgw.YQlZBA.0fJ14a9NTKDdObDh7Q-LdCubqrg")
                     .setMemberCachePolicy(MemberCachePolicy.ALL)
                     .setChunkingFilter(ChunkingFilter.ALL)
                     .enableIntents(GatewayIntent.GUILD_MEMBERS)
                     .build();
 
-            val commandMap = new CommandMap("ticket!");
+            val commandMap = new CommandMap("$");
             commandMap.register("ticketmessage", new SendTicketMessageCommand(), "tm");
 
             Runtime.getRuntime().addShutdownHook(new Thread(SupremoTicketBot::onShutdown));

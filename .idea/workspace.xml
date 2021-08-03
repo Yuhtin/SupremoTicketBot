@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -34,8 +35,9 @@
       <recent name="E:\Quotes\SupremoTicketBot\src\main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.yuhtin.supremo.ticketbot.models.enums" />
       <recent name="com.yuhtin.supremo.ticketbot.utils" />
+      <recent name="com.yuhtin.supremo.ticketbot.events" />
+      <recent name="com.yuhtin.supremo.ticketbot.models.enums" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -47,7 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627988815595</updated>
       <workItem from="1627988817105" duration="361000" />
-      <workItem from="1627989206332" duration="1294000" />
+      <workItem from="1627989206332" duration="9809000" />
     </task>
     <servers />
   </component>
