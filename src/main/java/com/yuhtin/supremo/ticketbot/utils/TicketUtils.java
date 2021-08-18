@@ -1,8 +1,8 @@
 package com.yuhtin.supremo.ticketbot.utils;
 
+import lombok.val;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.entities.VoiceChannel;
 
 /**
  * @author Yuhtin
@@ -10,12 +10,12 @@ import net.dv8tion.jda.api.entities.VoiceChannel;
  */
 public class TicketUtils {
 
-    public static int getNextTicketNumber(Guild guild) {
+    public static int getTicketNumber(Guild guild) {
 
-        VoiceChannel channel = guild.getVoiceChannelById(872131438538002443L);
+        val channel = guild.getVoiceChannelById(872131438538002443L);
         if (channel == null) return 1;
 
-        int ticket = Integer.parseInt(channel.getName().split(" ")[1]) + 1;
+        val ticket = Integer.parseInt(channel.getName().split(" ")[1]) + 1;
         channel.getManager()
                 .setName("Tickets: " + ticket)
                 .queue();
@@ -24,7 +24,7 @@ public class TicketUtils {
 
     }
 
-    public static boolean channelIsTicket(TextChannel channel) {
+    public static boolean isTicketChannel(TextChannel channel) {
         return channel.getName().startsWith("ticket-") && channel.getTopic() != null;
     }
 

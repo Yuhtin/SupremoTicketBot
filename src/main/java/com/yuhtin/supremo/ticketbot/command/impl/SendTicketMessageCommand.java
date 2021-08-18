@@ -19,7 +19,7 @@ public class SendTicketMessageCommand implements Command {
 
         if (!DiscordUtils.hasPermission(message.getMember(), message.getChannel(), Permission.MANAGE_CHANNEL, false)) return;
 
-        if (!message.getChannel().getName().equalsIgnoreCase("tickets")) {
+        if (!message.getChannel().getName().contains("tickets")) {
 
             message.reply("❌ O nome do canal precisa ser `#tickets`").queue();
             return;

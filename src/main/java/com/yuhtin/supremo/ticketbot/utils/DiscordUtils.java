@@ -22,7 +22,7 @@ public class DiscordUtils {
 
             if (!showMessage) return false;
 
-            channel.sendMessage("❌ Você não tem permissão para usar esta função")
+            channel.sendMessage("❌ Sem permissão para fazer isto.")
                     .queue(message -> message.delete().queueAfter(5, TimeUnit.SECONDS));
 
             return false;

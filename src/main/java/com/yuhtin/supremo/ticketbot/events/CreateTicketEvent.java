@@ -1,7 +1,9 @@
 package com.yuhtin.supremo.ticketbot.events;
 
 import com.yuhtin.supremo.ticketbot.models.enums.TicketTypes;
+import com.yuhtin.supremo.ticketbot.utils.Logger;
 import com.yuhtin.supremo.ticketbot.utils.TicketUtils;
+import lombok.val;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Category;
@@ -21,6 +23,8 @@ public class CreateTicketEvent extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent event) {
+
+        if (event.getMember().getUser().isBot()) return;
 
         TextChannel channel = event.getChannel();
         if (!channel.getName().contains("tickets")) return;
@@ -45,7 +49,7 @@ public class CreateTicketEvent extends ListenerAdapter {
         );
 
         PrivateChannel privateChannel = event.getUser().openPrivateChannel().complete();
-        if (privateChannel == null) {
+        if (!event.getUser().hasPrivateChannel() || privateChannel == null) {
 
             event.getChannel()
                     .sendMessage("💭 Habilite as mensagens diretas a partir deste servidor.")
@@ -73,7 +77,12 @@ public class CreateTicketEvent extends ListenerAdapter {
         builder.setColor(Color.CYAN);
         builder.setTimestamp(Instant.now());
 
-        category.createTextChannel("ticket-" + TicketUtils.getNextTicketNumber(channel.getGuild()))
+        TicketTypes finalType = type;
+
+        val role = event.getGuild().getRoleById(872131049394688031L);
+        if (role == null) return;
+
+        category.createTextChannel("ticket-" + TicketUtils.getTicketNumber(channel.getGuild()))
 
                 .setTopic("Ticket: " + event.getUser().getId())
 
@@ -98,7 +107,7 @@ public class CreateTicketEvent extends ListenerAdapter {
                 )
 
                 .addPermissionOverride(
-                        event.getGuild().getRoleById(872131049394688031L),
+                        role,
                         Arrays.asList(
                                 Permission.MESSAGE_READ,
                                 Permission.MESSAGE_WRITE,
@@ -110,7 +119,9 @@ public class CreateTicketEvent extends ListenerAdapter {
 
                 .queue(textChannel -> {
 
-                    textChannel.sendMessage(builder.build()).queue(message -> message.addReaction("❌").queue());
+                    Logger.getLogger().info("Player " + event.getUser().getAsTag() + " openned a ticket (#" + textChannel.getName() + " - " + finalType.fancyName() + ")");
+                    textChannel.sendMessage(role.getAsMention()).queue();
+                    textChannel.sendMessage(builder.build()).queue(message -> message.addReaction("\uD83D\uDD14").queue());
 
                     String sucessMessage = "\uD83D\uDDE8️ "
                             + event.getUser().getAsMention()

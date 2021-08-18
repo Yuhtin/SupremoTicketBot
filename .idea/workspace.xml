@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -29,6 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -40,6 +41,20 @@
       <recent name="com.yuhtin.supremo.ticketbot.models.enums" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install assembly:single" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Build and Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.yuhtin.supremo.ticketbot.SupremoTicketBot" />
+      <module name="ticketbot" />
+      <method v="2">
+        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="install assembly:single" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,6 +65,13 @@
       <updated>1627988815595</updated>
       <workItem from="1627988817105" duration="361000" />
       <workItem from="1627989206332" duration="11172000" />
+      <workItem from="1628043568421" duration="1157000" />
+      <workItem from="1628078390434" duration="1281000" />
+      <workItem from="1628086941061" duration="477000" />
+      <workItem from="1628530965113" duration="615000" />
+      <workItem from="1628552982903" duration="2082000" />
+      <workItem from="1628595643137" duration="739000" />
+      <workItem from="1628706207858" duration="4732000" />
     </task>
     <servers />
   </component>
